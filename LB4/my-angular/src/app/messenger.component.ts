@@ -17,6 +17,7 @@ export class MessengerComponent {
 
     userDialogs: any = [{}];
 
+
     currentDialog : any = {}
     userID : any = this.cookieService.get('userID'); 
 
@@ -69,10 +70,9 @@ export class MessengerComponent {
 
     sendMessage(userID : number, friendID : number = this.curFriendID, messenge : string = this.messenge){
         this.socketService.sendMessage(userID, friendID, messenge);
-        this.socketService.socket.on("msg", (msg) => {console.log(msg.msg)});
 
-        this.dataService.sendUserDialog(userID, friendID, messenge).subscribe((res) =>{
-            this.currentDialog = res;
+        this.socketService.socket.on("chatMsg", (msg) => {
+            this.currentDialog = msg.msg;
         });
     }
 }

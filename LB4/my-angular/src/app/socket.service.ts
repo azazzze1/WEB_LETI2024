@@ -15,6 +15,6 @@ export class SocketService {
     }
 
     sendMessage(userID : number, friendID : number, msg : string){
-        this.socket.emit("chatMsg", ({"userId": userID, "friendID": friendID, "msg": msg}));
+        this.socket.emit("chatMsg", ({"userID": userID, "friendID": friendID, "msg": msg}));
     }
 }
