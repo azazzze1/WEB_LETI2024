@@ -1,0 +1,11 @@
+<ul class="news-list">
+    <li *ngFor="let post of userPostsList; let i = index" class="news-list-elem">
+        <div class="news-list-elem-cont">
+            <div style="display: flex; align-items: center;">
+                <img src="/assets/images/avatar/{{post.user}}.png" class="news-avatar">
+                <p class="news-list-elem-author"><b>{{post.author}}</b></p>
+            </div>
+            <p class="news-list-elem-text">{{post.text}}</p>
+        </div>
+    </li>
+</ul>`
