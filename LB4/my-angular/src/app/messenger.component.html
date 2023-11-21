@@ -1,5 +1,6 @@
 
-<div>
+<div style="display: inline;">
+    
     <div class="line-block">
         <ul class="friend-list">
             <li *ngFor="let friend of friendList;" class="friend-list-elem">
@@ -12,13 +13,13 @@
     </div> 
 
 
-    <div>
-        <div style="overflow-y: scroll; width: 50%; height: 512px;" id = "ChatBox">
+    <div class = "chatbox">
+        <div style="overflow-y: scroll; width: 614px; height: 512px;" id = "ChatBox">
             <ul class="friend-list">
                 <li *ngFor="let mess of currentDialog.dialog" >
                     <div style = "display: flex; align-items: center;">
                         <img src="/assets/images/avatar/{{mess.id}}.png" class="friend-avatar">
-                        <p>{{mess.text}}</p>
+                        <span>{{mess.text}}</span>
                     </div>
                 </li>
             </ul>
@@ -29,6 +30,7 @@
             <button *ngIf="currentDialog.dialog" (click)="sendMessage(userID)">Нажми меня</button>
         </div>
     </div>
+
 </div>
    
     

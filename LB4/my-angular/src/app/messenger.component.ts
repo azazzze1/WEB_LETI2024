@@ -9,7 +9,6 @@ import { SocketService } from './socket.service';
     styleUrls: ["friends.component.less"]
 })
 
-
 export class MessengerComponent {
     usersStorage: any;
     messenge : string = "";
