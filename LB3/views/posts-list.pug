@@ -1,0 +1,12 @@
+include head-page
+    ol(class = "user-list")
+        h3 Новости [пользователь: #{curUser.surname} #{curUser.name} #{curUser.patronymic}]
+        each post in userPosts
+            li
+                div(class = "post-elem")
+                    span(style = "align-items: center;") #{post}
+
+
+
+
+

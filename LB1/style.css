@@ -1,0 +1,33 @@
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: black;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 320px 200px;
+}
+
+.right_column, .login-grid{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game_board{
+    border: solid 2px white;
+}
+
+.next{
+    border: solid 2px white;
+}
+
+.record-table{
+    color: white;
+    border-spacing: 12px;
+}
+

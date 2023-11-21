@@ -1,0 +1,18 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="../public/awesomeFont/css/all.min.css")
+        link(rel="stylesheet" href="../public/styles/libStyle.css")
+        title Вход в систему
+    body
+        dialog(id="username" open, class="menu-dialog")
+            form(method="post")
+                label(for="userName") ФИО:
+                input(type="text", placeholder="Шушков Егор Васильевич", name="userName", class = "input-nickname")
+                br
+                label(for="adminRoot") Права администратора:
+                input(type="checkbox", name="adminRoot")
+                br
+                input(type="submit", value="Войти", class="menu-button-solo")
