@@ -1,5 +1,0 @@
-#bookList
-    ol(class = "list-book")
-        each book in lib_catalog
-            li(class = "list-elem")
-                a(href="/books/" + book.id)  "#{book.title}" - #{book.author}
