@@ -12,11 +12,11 @@ router.get("/src/*.js", (req,res)=>{
     res.sendFile("/home/azazzzel/WEB_LETI2024/CW" + req.url);
 })
 
-router.get("/home/azazzzel/WEB_LETI2024/CW/public/map/firstLevel/firstMap.json", (req, res) => {
-    res.sendFile("/home/azazzzel/WEB_LETI2024/CW/public/map/firstLevel/firstMap.json")
+router.get("/*.png", (req,res)=>{
+    res.sendFile("/home/azazzzel/WEB_LETI2024/CW/public/map/" + req.url);
 })
 
-router.get("/home/azazzzel/WEB_LETI2024/CW/public/map/firstLevel/*.tsx", (req, res) => {
+router.get("/home/azazzzel/WEB_LETI2024/CW/public/map/levels/*.json", (req, res) => {
     res.sendFile(req.url);
 })
 
