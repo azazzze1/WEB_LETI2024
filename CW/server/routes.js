@@ -8,6 +8,10 @@ router.get("/", (req, res) => {
     res.sendFile("/home/azazzzel/WEB_LETI2024/CW/views/game.html");
 })
 
+router.get("/src/spriteManager", (req, res) => {
+    res.redirect("/src/spriteManager.js");
+})
+
 router.get("/src/*.js", (req,res)=>{
     res.sendFile("/home/azazzzel/WEB_LETI2024/CW" + req.url);
 })
