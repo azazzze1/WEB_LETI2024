@@ -1,23 +1,44 @@
-//Добавить gameManager 
-import { SpriteManager } from "./spriteManager";
-
 export class Entity{
-    constructor(SpriteManager){
-        this.spriteManager = SpriteManager;
+    constructor(){
+        this.entName = "";
         this.posX = 0; this.posY = 0; 
         this.sizeX = 0; this.sizeY = 0;
     }
 }
 
+export class Stone extends Entity{
+    constructor(){
+        super();
+    }
+
+    draw(ctx, spriteManager){spriteManager.drawSprite(ctx,this.entName, this.posX, this.posY);}
+}
+
+export class House extends Entity{
+    constructor(){
+        super();
+    }
+
+    draw(ctx, spriteManager){spriteManager.drawSprite(ctx, this.entName, this.posX, this.posY);}
+}
+
+export class Block extends Entity{
+    constructor(){
+        super();
+    }
+
+    draw(ctx, spriteManager){}
+}
+
 export class Player extends Entity{
-    constructor(SpriteManager){
-        super(SpriteManager); 
+    constructor(){
+        super(); 
         this.lifes = 3; 
         this.speed = 1;
         this.moveX = 0; this.moveY = 0; 
     }
 
-    draw(ctx){}
+    draw(ctx, spriteManager){spriteManager.drawSprite(ctx);}
 
     update(){}
 
@@ -53,13 +74,13 @@ export class Player extends Entity{
 }
 
 export class Bullet extends Entity{
-    constructor(){
-        super(); 
+    constructor(spriteManager){
+        super(spriteManager); 
         this.speed = 3;
         this.moveX = 0; this.moveY = 0; 
     }
 
-    draw(ctx){}
+    draw(ctx, spriteManager){spriteManager.drawSprite(ctx);}
 
     update(){}
 
@@ -67,14 +88,14 @@ export class Bullet extends Entity{
 }
 
 export class Zombie extends Entity{
-    constructor(spriteManager){
-        super(spriteManager); 
-        this.lifes = 3; 
+    constructor(){
+        super(); 
+        this.lifes = 1; 
         this.speed = 0.5;
     }
 
-    draw(ctx){
-        this.spriteManager.drawSprite(ctx,"sprite1", this.posX, this.posY);
+    draw(ctx, spriteManager){
+        spriteManager.drawSprite(ctx,"zRight1", this.posX, this.posY);
     }
 
     update(){}

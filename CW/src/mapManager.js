@@ -77,7 +77,6 @@ export class mapManager{
         let y = Math.floor(id / tileset.xCount);
         tile.px = x * this.tSize.x;
         tile.py = y * this.tSize.y;
-        console.log(tileset);
         return tile;
     }
 
@@ -87,31 +86,66 @@ export class mapManager{
     }
 
     draw(ctx){
-    if(!this.imgLoaded || !this.jsonLoaded){
-        setTimeout(() => {this.draw(ctx);}, 500);
-    }else{
-        if(this.tLayer.length === 0){
-            for(let id = 0; id < this.mapData.layers.length; ++id){
-                let layer = this.mapData.layers[id];
-                if(layer.type === "tilelayer"){
-                    this.tLayer.push(layer);
+        if(!this.imgLoaded || !this.jsonLoaded){
+            setTimeout(() => {this.draw(ctx);}, 500);
+        }else{
+            if(this.tLayer.length === 0){
+                for(let id = 0; id < this.mapData.layers.length; ++id){
+                    let layer = this.mapData.layers[id];
+                    if(layer.type === "tilelayer"){
+                        this.tLayer.push(layer);
+                    }
                 }
             }
-
-            console.log(this.tLayer);
-
             for(let j = 0; j < this.tLayer.length; ++j){
                 for(let i = 0; i < this.tLayer[j].data.length; ++i){
                     if(this.tLayer[j].data[i] !== 0){
                         let tile = this.getTile(this.tLayer[j].data[i]);
                         let pX = (i % this.xCount) * this.tSize.x;
                         let pY = Math.floor(i / this.xCount) * this.tSize.y;
-                        console.log(tile.img, tile.px, tile.py, this.tSize.x, this.tSize.y, pX, pY, this.tSize.x, this.tSize.y);
                         ctx.drawImage(tile.img, tile.px, tile.py, this.tSize.x, this.tSize.y, pX, pY, this.tSize.x, this.tSize.y);
                     }
                 }
             }
         }
     }
-}
+
+    parseEntities(gameManager){
+        if(!this.imgLoaded || !this.jsonLoaded){
+            setTimeout(() => {this.parseEntities(gameManager);}, 500);
+        }else{
+            let entities; 
+            for(let j = 0; j < this.mapData.layers.length; ++j){
+                if(this.mapData.layers[j].type === 'objectgroup'){
+                    entities = this.mapData.layers[j];
+                    for(let i = 0; i < entities.objects.length; ++i){
+                        let ent = entities.objects[i];
+                        try{
+                            let obj = new gameManager.factory[ent.type]();
+                            obj.entName = ent.name;
+                            obj.posX = ent.x;
+                            obj.posY = ent.y;
+                            obj.sizeX = ent.width;
+                            obj.sizeY = ent.height;
+                            gameManager.entities.push(obj);
+                            if(obj.name === "player"){
+                                gameManager.initPlayer(obj); 
+                            }
+                        }catch(error){
+                            console.log("create object error: " + error);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    getTilesetIDx(x,y){
+        let wX = x;
+        let wY = y;
+        let idx = Math.floor(wY / this.tSize.y) * this.xCount + Math.floor(wX / this.tSize.x);
+        return this.tLayer.data[idx];
+    } 
+
+    
 };
