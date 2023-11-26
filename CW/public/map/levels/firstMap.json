@@ -40,245 +40,196 @@
          "objects":[
                 {
                  "gid":1062,
-                 "height":32,
+                 "height":14.2798060634383,
                  "id":30,
                  "name":"house1",
                  "rotation":0,
                  "type":"House",
                  "visible":true,
-                 "width":32,
+                 "width":14.2798060634383,
                  "x":288,
                  "y":320
                 }, 
                 {
                  "gid":1063,
-                 "height":32,
+                 "height":15.775220515217,
                  "id":31,
                  "name":"house2",
                  "rotation":0,
                  "type":"House",
                  "visible":true,
-                 "width":32,
+                 "width":15.775220515217,
                  "x":320,
                  "y":320
                 }, 
                 {
                  "gid":1117,
-                 "height":32,
+                 "height":15.0275132893277,
                  "id":32,
                  "name":"house3",
                  "rotation":0,
                  "type":"House",
                  "visible":true,
-                 "width":32,
+                 "width":15.0275132893277,
                  "x":288,
                  "y":352
                 }, 
                 {
                  "gid":1118,
-                 "height":32,
+                 "height":16.5229277411063,
                  "id":33,
                  "name":"house4",
                  "rotation":0,
                  "type":"House",
                  "visible":true,
-                 "width":32,
+                 "width":16.5229277411063,
                  "x":320,
                  "y":352
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
+                 "height":20.0366843857702,
                  "id":34,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":512,
-                 "y":128
+                 "width":21.8152198738184,
+                 "x":516.203122319067,
+                 "y":124.261463870553
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
-                 "id":35,
-                 "name":"stone4",
-                 "rotation":0,
-                 "type":"Stone",
-                 "visible":true,
-                 "width":32,
-                 "x":480,
-                 "y":160
-                }, 
-                {
-                 "gid":1454,
-                 "height":32,
+                 "height":22.2798060634383,
                  "id":36,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":448,
-                 "y":192
+                 "width":22.2798060634383,
+                 "x":452.486243355336,
+                 "y":186.018342192885
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
+                 "height":22.2798060634383,
                  "id":37,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":96,
-                 "y":128
+                 "width":22.2798060634383,
+                 "x":100.486243355336,
+                 "y":124.261463870553
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
-                 "id":38,
-                 "name":"stone4",
-                 "rotation":0,
-                 "type":"Stone",
-                 "visible":true,
-                 "width":32,
-                 "x":128,
-                 "y":160
-                }, 
-                {
-                 "gid":1454,
-                 "height":32,
+                 "height":20.7843916116595,
                  "id":39,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":160,
-                 "y":192
+                 "width":20.7843916116595,
+                 "x":165.981657807115,
+                 "y":186.766049418774
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
+                 "height":20.7843916116596,
                  "id":40,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":96,
-                 "y":544
+                 "width":22.2798060634383,
+                 "x":99.7385361294468,
+                 "y":538.766049418775
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
-                 "id":41,
-                 "name":"stone4",
-                 "rotation":0,
-                 "type":"Stone",
-                 "visible":true,
-                 "width":32,
-                 "x":128,
-                 "y":512
-                }, 
-                {
-                 "gid":1454,
-                 "height":32,
+                 "height":12.5596121268766,
                  "id":42,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":160,
-                 "y":480
+                 "width":11.8119049009872,
+                 "x":165.233950581226,
+                 "y":467.288977159881
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
+                 "height":18.8042990479421,
                  "id":43,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":512,
-                 "y":544
+                 "width":19.2889771598808,
+                 "x":516.486243355336,
+                 "y":537.533664080947
                 }, 
                 {
                  "gid":1454,
-                 "height":32,
-                 "id":44,
-                 "name":"stone4",
-                 "rotation":0,
-                 "type":"Stone",
-                 "visible":true,
-                 "width":32,
-                 "x":480,
-                 "y":512
-                }, 
-                {
-                 "gid":1454,
-                 "height":32,
+                 "height":20.0366843857702,
                  "id":45,
                  "name":"stone4",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":448,
-                 "y":480
+                 "width":20.0366843857702,
+                 "x":453.233950581226,
+                 "y":473.270634966996
                 }, 
                 {
                  "gid":1456,
-                 "height":32,
+                 "height":17.7935627081021,
                  "id":46,
                  "name":"stone6",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":192,
-                 "y":352
+                 "width":17.0458554822127,
+                 "x":183.027513289328,
+                 "y":328.82107599743
                 }, 
                 {
                  "gid":1456,
-                 "height":32,
+                 "height":17.05,
                  "id":47,
                  "name":"stone6",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":192,
-                 "y":320
+                 "width":17.05,
+                 "x":310.137741690519,
+                 "y":233.265961796834
                 }, 
                 {
-                 "gid":1456,
-                 "height":32,
+                 "gid":2147485104,
+                 "height":17.79,
                  "id":48,
                  "name":"stone6",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":416,
-                 "y":352
+                 "width":17.05,
+                 "x":436.188095099013,
+                 "y":329.568783223319
                 }, 
                 {
                  "gid":1456,
-                 "height":32,
+                 "height":16.2981482563234,
                  "id":49,
                  "name":"stone6",
                  "rotation":0,
                  "type":"Stone",
                  "visible":true,
-                 "width":32,
-                 "x":416,
-                 "y":320
-                },
-            
+                 "width":16.2981482563234,
+                 "x":310.5732811496,
+                 "y":456.082715111864
+                }, 
                 {
                  "height":640,
                  "id":52,
@@ -313,7 +264,7 @@
                  "y":64
                 }, 
                 {
-                 "height":64,
+                 "height":34.8394181903149,
                  "id":62,
                  "name":"block",
                  "rotation":0,
@@ -321,19 +272,20 @@
                  "visible":true,
                  "width":512,
                  "x":64,
-                 "y":576
-                }, 
+                 "y":605.160581809685
+                },
+            
                 {
                  "gid":1467,
-                 "height":32,
-                 "id":63,
+                 "height":21.5320988375489,
+                 "id":67,
                  "name":"zDown1",
                  "rotation":0,
                  "type":"Player",
                  "visible":true,
-                 "width":32,
-                 "x":303.270985454758,
-                 "y":382.376540685788
+                 "width":19.2889771598808,
+                 "x":288.31684093697,
+                 "y":416.023365850809
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -341,8 +293,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":6,
- "nextobjectid":64,
+ "nextlayerid":7,
+ "nextobjectid":69,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"git",
@@ -385,6 +337,132 @@
          "spacing":0,
          "tilecount":44,
          "tileheight":32,
+         "tiles":[
+                {
+                 "id":0,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":26.749226006192,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":12.3013415892673,
+                             "x":8.83384932920537,
+                             "y":5.03611971104231
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                }, 
+                {
+                 "id":11,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":27.3327828241123,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":12.4690338563171,
+                             "x":9.57886044591247,
+                             "y":4.78943022295624
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                }, 
+                {
+                 "id":22,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":27.8282411230388,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":12.7167630057803,
+                             "x":10.5697770437655,
+                             "y":4.12881915772089
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                }, 
+                {
+                 "id":33,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":27.4153592072667,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":12.7993393889348,
+                             "x":8.42279108175062,
+                             "y":4.54170107349298
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                }, 
+                {
+                 "id":42,
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":26.4244426094137,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":12.7993393889348,
+                             "x":7.51445086705202,
+                             "y":5.61519405450041
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                }],
          "tilewidth":32
         }],
  "tilewidth":32,

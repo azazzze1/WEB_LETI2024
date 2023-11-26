@@ -124,7 +124,7 @@ export class mapManager{
                             let obj = new gameManager.factory[ent.type]();
                             obj.entName = ent.name;
                             obj.posX = ent.x;
-                            obj.posY = ent.y;
+                            obj.posY = ent.y - 32;
                             obj.sizeX = ent.width;
                             obj.sizeY = ent.height;
                             gameManager.entities.push(obj);

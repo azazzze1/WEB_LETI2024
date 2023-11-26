@@ -1,11 +1,12 @@
 import { mapManager } from "./mapManager.js";
 import { SpriteManager} from "./spriteManager.js";
 import { gameManager } from "./gameManager.js";
+import { MAP_HEIGHT, MAP_WIDTH, SPEED, ZOMBIE_TIME_SPAWN } from "./configuration.js"
 
 
 let canvas = document.getElementById("canvasID");
 let ctx = canvas.getContext("2d");
-canvas.width = 640; canvas.height = 640;
+canvas.width = MAP_WIDTH; canvas.height = MAP_HEIGHT;
 
 let mainMapManager = new mapManager("/home/azazzzel/WEB_LETI2024/CW/public/map/levels/firstMap.json");
 
@@ -15,29 +16,36 @@ spriteManager.loadAtlas("/public/sprites/tileSprites.json", "/public/sprites/til
 let mainGameManager = new gameManager(ctx, mainMapManager, spriteManager);
 
 let rAF = null; 
+let count = 0;
 
 document.addEventListener('keydown', (event) => {
     const KeyName = event.key;
 
-    if(KeyName == 'ArrowLeft' || KeyName == 'ArrowRight'){
-        console.log("LEFT");
-        mainGameManager.player.posX = KeyName == 'ArrowLeft' ? mainGameManager.player.posX - 3 : mainGameManager.player.posX + 3;
+    if(KeyName == 'ArrowLeft'){
+        mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX - mainGameManager.player.speed, mainGameManager.player.posY);
+    }
+
+    if(KeyName == 'ArrowRight'){
+        mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX + mainGameManager.player.speed, mainGameManager.player.posY);
     }
 
     if(KeyName == "ArrowUp"){
-        console.log("UP")
-        mainGameManager.player.posY-=3;
+        mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX, mainGameManager.player.posY - mainGameManager.player.speed);
     }
 
     if(KeyName == "ArrowDown"){
-        console.log("DOWN")
-        mainGameManager.player.posY+=3;
+        mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX, mainGameManager.player.posY + mainGameManager.player.speed);
     }
 });
 
+mainGameManager.spawnZombie();
 
 function loop(){
     rAF = requestAnimationFrame(loop);
+    if(++count === ZOMBIE_TIME_SPAWN){
+        count = 0;
+       mainGameManager.spawnZombie();
+    }
     mainGameManager.update();
     mainGameManager.draw(ctx);
 }
