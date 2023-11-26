@@ -38,7 +38,7 @@ export class Player extends Entity{
         this.moveX = 0; this.moveY = 0; 
     }
 
-    draw(ctx, spriteManager){spriteManager.drawSprite(ctx);}
+    draw(ctx, spriteManager){spriteManager.drawSprite(ctx, this.entName, this.posX, this.posY);}
 
     update(){}
 

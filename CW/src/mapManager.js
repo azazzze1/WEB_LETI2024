@@ -128,7 +128,7 @@ export class mapManager{
                             obj.sizeX = ent.width;
                             obj.sizeY = ent.height;
                             gameManager.entities.push(obj);
-                            if(obj.name === "player"){
+                            if(ent.type === "Player"){
                                 gameManager.initPlayer(obj); 
                             }
                         }catch(error){

@@ -49,7 +49,7 @@ export class SpriteManager{
         if(!this.imgLoaded || !this.jsonLoaded){
             setTimeout(()=>{this.drawSprite(ctx, name, x, y)}, 500);
         }else{
-            let sprite = this.getSprite(name);       
+            let sprite = this.getSprite(name);   
             ctx.drawImage(this.image, sprite.x, sprite.y, sprite.w, sprite.h, x, y, sprite.w, sprite.h);
         }
     }

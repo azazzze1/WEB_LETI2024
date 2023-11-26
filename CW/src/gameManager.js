@@ -53,6 +53,22 @@ export class gameManager{
         this.draw(this.ctx);
     }
 
+    entityAtXY(obj, x, y){
+        for(let i = 0; i < this.entities.length; ++i){
+            let ent = this.entities[i];
+            if(ent.entName !== obj.entName){
+                if(x + obj.sizeX < ent.posX ||
+                    y + obj.sizeY < ent.posY ||
+                    x > ent.posX + ent.sizeX ||
+                    y > ent.posY + ent.sizeY){
+                        continue;
+                    }
+                return ent;
+            }
+        }
+        return null; 
+    }
+
     loadAll(){
         this.factory['Player'] = Player;
         this.factory['Stone'] = Stone;

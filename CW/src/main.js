@@ -21,23 +21,24 @@ document.addEventListener('keydown', (event) => {
 
     if(KeyName == 'ArrowLeft' || KeyName == 'ArrowRight'){
         console.log("LEFT");
-        spriteZombie.posX = KeyName == 'ArrowLeft' ? spriteZombie.posX - 3: spriteZombie.posX + 3;
+        mainGameManager.player.posX = KeyName == 'ArrowLeft' ? mainGameManager.player.posX - 3 : mainGameManager.player.posX + 3;
     }
 
     if(KeyName == "ArrowUp"){
         console.log("UP")
-        spriteZombie.posY-=3;
+        mainGameManager.player.posY-=3;
     }
 
     if(KeyName == "ArrowDown"){
         console.log("DOWN")
-        spriteZombie.posY+=3;
+        mainGameManager.player.posY+=3;
     }
 });
 
 
 function loop(){
     rAF = requestAnimationFrame(loop);
+    mainGameManager.update();
     mainGameManager.draw(ctx);
 }
 
