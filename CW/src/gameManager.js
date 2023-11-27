@@ -1,17 +1,22 @@
 import { MAP_HEIGHT, MAP_WIDTH, TILE_SIZE } from "./configuration.js";
-import { Block, Bullet, House, Player, Stone, Zombie } from "./entity.js";
+import { Block, Bonus, Bullet, House, Player, Stone, Zombie } from "./entity.js";
+import { rAF } from "./main.js";
 
 export class gameManager{
-    constructor(ctx, mapManager, spriteManager){
+    constructor(ctx, mapManager, spriteManager, audioManager){
         this.mapManager = mapManager;
         this.spriteManager = spriteManager; 
+        this.audioManager = audioManager;
+        this.score = 0;
+        this.zombieKill = 0;
         this.houseLifes = 3;
         this.ctx = ctx;
         this.factory = {};
         this.entities = [];
         this.fireNum = 0;
         this.player = null; 
-        this.laterKill = [];       
+        this.laterKill = [];     
+        this.recordList = JSON.parse(localStorage.getItem("recordList")) || [];    
 
         this.loadAll();
     }
@@ -22,6 +27,10 @@ export class gameManager{
 
     kill(obj){
         this.laterKill.push(obj); 
+        if(obj instanceof Zombie){
+            this.audioManager.dieZombieF();
+            document.getElementById("score").textContent = ++this.score;
+        }
     }
 
     draw(ctx){
@@ -31,12 +40,59 @@ export class gameManager{
     }
 
     gameOver(){
-        alert("GAME OVER!"); 
+        cancelAnimationFrame(rAF);
+        
+        let recordPlayer = {
+            name: localStorage.getItem("username"),
+            score: this.score
+        };
+
+        const existingRecordIndex = this.recordList.findIndex(record => record.name === recordPlayer.name);
+        if(existingRecordIndex !== -1){
+            if(recordPlayer.score > this.recordList[existingRecordIndex].score){
+                this.recordList[existingRecordIndex].score = recordPlayer.score;
+            }
+        }else{
+            this.recordList.push(recordPlayer);
+            this.recordList.sort(function (a,b){
+                return b.score - a.score;
+            })
+        }
+        localStorage.setItem('recordList', JSON.stringify(this.recordList));
+
+        const table = document.createElement('table');
+        const caption = document.createElement('caption');
+        caption.textContent = "Таблица рекордов:";
+        table.append(caption);
+        table.setAttribute('class', 'record-table');
+        document.body.append(table);
+
+        for (let i = 0; i < 10 && i !== this.recordList.length; ++i) {
+            const row = document.createElement('tr');
+            table.append(row);
+            for (let j = 0; j < 3; ++j) {
+                const cell = document.createElement('td');
+                row.append(cell);
+
+                let text;
+                if(j === 0)
+                    text = document.createTextNode(`${i+1})`);
+                else if(j === 1)
+                    text = document.createTextNode(`${this.recordList[i].name}:`);
+                else
+                    text = document.createTextNode(`${this.recordList[i].score}`);
+
+                cell.append(text);
+            }
+        } 
     }
 
     update(){
         if(!this.houseLifes){
             this.gameOver();
+        }
+        if(this.houseLifes == 1){
+            this.player.speed = 10;
         }
 
         if(this.player === null){
@@ -70,7 +126,7 @@ export class gameManager{
         let wallId = Math.floor(Math.random() * 4);
         let zName;
         
-        let widthSpawn = Math.floor(Math.random() * (MAP_WIDTH-TILE_SIZE*4)) + TILE_SIZE*2 + 16; //
+        let widthSpawn = Math.floor(Math.random() * (MAP_WIDTH-TILE_SIZE*4)) + TILE_SIZE*2 + 16; 
         let heightSpawn = Math.floor(Math.random() * (MAP_HEIGHT-TILE_SIZE*4)) + TILE_SIZE*2 + 16;
         if(wallId in [1,3]){
             heightSpawn = wallId === 1 ? 65 : MAP_HEIGHT - 120;
@@ -138,6 +194,7 @@ export class gameManager{
         this.factory['Bullet'] = Bullet;
         this.factory['Block'] = Block;
         this.factory['Zombie'] = Zombie;
+        this.factory['Bonus'] = Bonus; 
         this.mapManager.parseEntities(this);
         this.mapManager.draw(this.ctx);
     }

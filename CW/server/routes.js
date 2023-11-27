@@ -5,6 +5,10 @@ const urlencodedParser = express.urlencoded({extended: false});
 const fs = require("fs");
 
 router.get("/", (req, res) => {
+    res.sendFile("/home/azazzzel/WEB_LETI2024/CW/views/reg.html");
+})
+
+router.get("/game.html", (req, res) => {
     res.sendFile("/home/azazzzel/WEB_LETI2024/CW/views/game.html");
 })
 

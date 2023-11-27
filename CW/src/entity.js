@@ -9,6 +9,16 @@ export class Entity{
     }
 }
 
+export class Bonus extends Entity{
+    constructor(){
+        super(); 
+    }
+
+    draw(ctx, spriteManager){spriteManager.drawSprite(ctx,this.entName, this.posX, this.posY);}
+
+    update(){}
+}
+
 export class Stone extends Entity{
     constructor(){
         super();
@@ -86,8 +96,7 @@ export class Player extends Entity{
                 return;
         }
 
-        console.log(bullet);
-
+        gameManager.audioManager.shootF(); 
         gameManager.entities.push(bullet);
     }
 }
@@ -228,6 +237,10 @@ export class Zombie extends Entity{
     onTouchEntity(obj, gameManager){
         if(obj instanceof House){
             --gameManager.houseLifes;
+            document.getElementById("hLife").textContent = '';
+            for(let i = 0; i < gameManager.houseLifes; ++i){
+                document.getElementById("hLife").textContent += '♥ ';
+            }
             gameManager.kill(this);
             return true;            
         }
@@ -240,6 +253,4 @@ export class Zombie extends Entity{
         }
         return false; 
     }
-
-    kill(){}
 }
