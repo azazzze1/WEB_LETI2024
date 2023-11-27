@@ -5,6 +5,7 @@ export class gameManager{
     constructor(ctx, mapManager, spriteManager){
         this.mapManager = mapManager;
         this.spriteManager = spriteManager; 
+        this.houseLifes = 3;
         this.ctx = ctx;
         this.factory = {};
         this.entities = [];
@@ -29,17 +30,21 @@ export class gameManager{
         }
     }
 
+    gameOver(){
+        alert("GAME OVER!"); 
+    }
+
     update(){
+        if(!this.houseLifes){
+            this.gameOver();
+        }
+
         if(this.player === null){
             return;
         }
         for(let ent of this.entities){
             try{
-                if(ent instanceof Zombie){
-                    ent.update(this);
-                    continue;
-                }
-                ent.update();
+                ent.update(this);
             }catch(error){}
         }
 

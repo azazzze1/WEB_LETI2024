@@ -37,67 +37,109 @@ export class Player extends Entity{
     constructor(){
         super(); 
         this.lifes = 3; 
-        this.speed = 3;
-        this.moveX = 0; this.moveY = 0; 
+        this.speed = 5;
+        this.directive = "DOWN";
     }
 
     draw(ctx, spriteManager){spriteManager.drawSprite(ctx, this.entName, this.posX, this.posY);}
 
-    update(){}
+    update(gameManager){
+        if(!this.lifes){
+            gameManager.gameOver(); 
+        }
+    }
 
     onTouchEntity(obj){
         if(obj instanceof House){
             return true;            
         }
+        if(obj instanceof Zombie){
+            this.lifes = 0;
+            return true;            
+        }
     }
 
-    fire(){
-        let bullet = Object.create(Bullet);
+    fire(gameManager){
+        let bullet = new gameManager.factory['Bullet']();
+        bullet.entName = "stone1";
         bullet.sizeX = 32; 
         bullet.sizeY = 32;
-        bullet.moveX = this.moveX;
-        bullet.moveY = this.moveY;
-        switch(this.moveX + 2*this.moveY){
-            case -1:
+        bullet.directive = this.directive; 
+        switch(this.directive){
+            case "LEFT":
                 bullet.posX = this.posX - bullet.sizeX;
                 bullet.posY = this.posY;
                 break;
-            case 1: 
+            case "RIGHT": 
                 bullet.posX = this.posX + bullet.sizeX;
                 bullet.posY = this.posY;
                 break;
-            case -2:
+            case "UP":
                 bullet.posX = this.posX;
                 bullet.posY = this.posY - bullet.sizeY;
                 break;
-            case 2: 
+            case "DOWN": 
                 bullet.posX = this.posX;
                 bullet.posY = this.posY + bullet.sizeY;
                 break;
             default:
                 return;
         }
+
+        console.log(bullet);
+
+        gameManager.entities.push(bullet);
     }
 }
 
 export class Bullet extends Entity{
     constructor(spriteManager){
         super(spriteManager); 
-        this.speed = 3;
-        this.moveX = 0; this.moveY = 0; 
+        this.speed = 5;
     }
 
-    draw(ctx, spriteManager){spriteManager.drawSprite(ctx);}
+    draw(ctx, spriteManager){spriteManager.drawSprite(ctx, this.entName, this.posX, this.posY);}
 
-    update(){}
+    update(gameManager){
+        let newX = this.posX;
+        let newY = this.posY;
+        switch(this.directive){
+            case "UP":
+                newY -= this.speed;
+                gameManager.checkNewPos(this, newX, newY);
+                break;
 
-    onTouchEntity(obj, gameManager){}
+            case "DOWN":
+                newY += this.speed;
+                gameManager.checkNewPos(this, newX, newY);
+                break;
+
+            case "LEFT":
+                newX -= this.speed;
+                gameManager.checkNewPos(this, newX, newY);
+                break;
+
+            case "RIGHT":
+                newX += this.speed;
+                gameManager.checkNewPos(this, newX, newY);
+                break;
+        }
+    }
+
+    onTouchEntity(obj, gameManager){
+        if(obj instanceof Zombie){
+            gameManager.kill(obj);
+            return true;            
+        }
+        
+        gameManager.kill(this);
+        return false; 
+    }
 }
 
 export class Zombie extends Entity{
     constructor(){
         super(); 
-        this.lifes = 1; 
         this.speed = 1;
     }
 
@@ -105,7 +147,6 @@ export class Zombie extends Entity{
         spriteManager.drawSprite(ctx, this.entName, this.posX, this.posY);
     }
 
-    //Сделать ИИ для зомби, чтобы шёл к дому.
     update(gameManager){
         let ent;
         for(let x = -1; x < MAP_WIDTH; x+=32){
@@ -186,8 +227,16 @@ export class Zombie extends Entity{
 
     onTouchEntity(obj, gameManager){
         if(obj instanceof House){
+            --gameManager.houseLifes;
             gameManager.kill(this);
             return true;            
+        }
+        if(obj instanceof Bullet){
+            gameManager.kill(this);
+            return true;
+        }
+        if(obj instanceof Player){
+            obj.lifes = 0;
         }
         return false; 
     }

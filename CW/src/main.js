@@ -8,7 +8,7 @@ let canvas = document.getElementById("canvasID");
 let ctx = canvas.getContext("2d");
 canvas.width = MAP_WIDTH; canvas.height = MAP_HEIGHT;
 
-let mainMapManager = new mapManager("/home/azazzzel/WEB_LETI2024/CW/public/map/levels/firstMap.json");
+let mainMapManager = new mapManager("/home/azazzzel/WEB_LETI2024/CW/public/map/levels/secondMap.json");
 
 let spriteManager = new SpriteManager(mainMapManager);
 spriteManager.loadAtlas("/public/sprites/tileSprites.json", "/public/sprites/tilesImage.png")
@@ -23,18 +23,26 @@ document.addEventListener('keydown', (event) => {
 
     if(KeyName == 'ArrowLeft'){
         mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX - mainGameManager.player.speed, mainGameManager.player.posY);
+        mainGameManager.player.directive = "LEFT";
     }
 
     if(KeyName == 'ArrowRight'){
         mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX + mainGameManager.player.speed, mainGameManager.player.posY);
+        mainGameManager.player.directive = "RIGHT";
     }
 
     if(KeyName == "ArrowUp"){
         mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX, mainGameManager.player.posY - mainGameManager.player.speed);
+        mainGameManager.player.directive = "UP";
     }
 
     if(KeyName == "ArrowDown"){
         mainGameManager.checkNewPos(mainGameManager.player, mainGameManager.player.posX, mainGameManager.player.posY + mainGameManager.player.speed);
+        mainGameManager.player.directive = "DOWN";
+    }
+
+    if(KeyName == "Control"){
+        mainGameManager.player.fire(mainGameManager); 
     }
 });
 

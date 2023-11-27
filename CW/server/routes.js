@@ -16,9 +16,18 @@ router.get("/src/*.js", (req,res)=>{
     res.sendFile("/home/azazzzel/WEB_LETI2024/CW" + req.url);
 })
 
+router.get("/*.css", (req,res)=>{
+    res.sendFile("/home/azazzzel/WEB_LETI2024/CW/public" + req.url);
+})
+
+router.get("/sprites/tilesImage.png", (req,res)=>{
+    res.sendFile("/home/azazzzel/WEB_LETI2024/CW/public/sprites/tilesImage.png");
+})
+
 router.get("/*.png", (req,res)=>{
     res.sendFile("/home/azazzzel/WEB_LETI2024/CW/public/map/" + req.url);
 })
+
 
 router.get("/home/azazzzel/WEB_LETI2024/CW/public/map/levels/*.json", (req, res) => {
     res.sendFile(req.url);
