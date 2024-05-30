@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ZOMBIE FOREST</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+    </head>
+    <body>
+
+    <form action='game.html' method='get' onsubmit="saveName()">
+        <div class="reg">
+            <label for="username">Ваш никнейм:</label> 
+            <input placeholder='Введите своё имя', id='username', name='username' required>
+
+            <select name="select" id="selectID">
+                <option value="1">Первый уровень</option>
+                <option value="2" selected>Второй уровень</option>
+              </select>
+
+            <button type='submit'>Старт!</button> 
+        </div>
+
+        <script>
+            function saveName(){
+                let userName = document.getElementById("username");
+                localStorage.setItem("username", userName.value);
+
+                let level = document.getElementById("selectID");
+                localStorage.setItem("level", level.value);   
+            }
+        </script>
+    </form>
+        
+    </body>
+</html>

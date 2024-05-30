@@ -1,0 +1,37 @@
+body{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+.map{
+    left: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.record-table{
+    color: white;
+    border-spacing: 12px;
+    margin-left: 30px;
+    
+}
+
+.score{
+    margin-left: 20px;
+    border: 2px;
+    border-color: white;
+}
+
+.reg{
+    font-size: 21px;
+}
+
+
+
