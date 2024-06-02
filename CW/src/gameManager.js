@@ -41,6 +41,8 @@ export class gameManager{
 
     gameOver(){
         cancelAnimationFrame(rAF);
+
+        this.audioManager.gameOverF();
         
         let recordPlayer = {
             name: localStorage.getItem("username"),
@@ -128,11 +130,11 @@ export class gameManager{
         
         let widthSpawn = Math.floor(Math.random() * (MAP_WIDTH-TILE_SIZE*4)) + TILE_SIZE*2 + 16; 
         let heightSpawn = Math.floor(Math.random() * (MAP_HEIGHT-TILE_SIZE*4)) + TILE_SIZE*2 + 16;
-        if(wallId in [1,3]){
+        if(wallId == 1 || wallId == 3){
             heightSpawn = wallId === 1 ? 65 : MAP_HEIGHT - 120;
             zName = wallId === 1 ? 'zDown1' : 'zUp1'; 
         }else{
-            widthSpawn = wallId === 0 ? 50 : MAP_WIDTH - 120;
+            widthSpawn = wallId === 0 ? 33 : MAP_WIDTH - 120;
             zName = wallId === 0 ? 'zRight1' : 'zLeft1'; 
         }
 
@@ -194,7 +196,6 @@ export class gameManager{
         this.factory['Bullet'] = Bullet;
         this.factory['Block'] = Block;
         this.factory['Zombie'] = Zombie;
-        this.factory['Bonus'] = Bonus; 
         this.mapManager.parseEntities(this);
         this.mapManager.draw(this.ctx);
     }

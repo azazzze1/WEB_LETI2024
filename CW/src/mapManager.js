@@ -80,11 +80,6 @@ export class mapManager{
         return tile;
     }
 
-    isVisible(x,y,width,height){
-        let returnValue = (x + width < this.view.w || y + height < this.view.y || x > this.view.x + this.view.w || y > this.view.y + this.view.h ) ? false : true;
-        return returnValue;
-    }
-
     draw(ctx){
         if(!this.imgLoaded || !this.jsonLoaded){
             setTimeout(() => {this.draw(ctx);}, 500);

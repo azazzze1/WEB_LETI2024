@@ -1,4 +1,12 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"json",
+         "target":"secondMap.json"
+        }
+    },
  "height":20,
  "infinite":false,
  "layers":[
@@ -401,15 +409,15 @@
                 }, 
                 {
                  "gid":2586,
-                 "height":28,
+                 "height":15.9625468164793,
                  "id":42,
                  "name":"zDown1",
                  "rotation":0,
                  "type":"Player",
                  "visible":true,
-                 "width":28,
-                 "x":305,
-                 "y":334
+                 "width":16.1439393939393,
+                 "x":310.333333333333,
+                 "y":326.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",

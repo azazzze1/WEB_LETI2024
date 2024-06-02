@@ -57,6 +57,20 @@ export class Player extends Entity{
         if(!this.lifes){
             gameManager.gameOver(); 
         }
+        switch(this.directive){
+            case "UP":
+                this.entName = 'zUp1';
+                break;
+            case "DOWN":
+                this.entName = 'zDown1';
+                break;
+            case "LEFT":
+                this.entName = 'zLeft1';
+                break;
+            case "RIGHT":
+                this.entName = 'zRight1';
+                break;
+        }
     }
 
     onTouchEntity(obj){
@@ -157,6 +171,21 @@ export class Zombie extends Entity{
     }
 
     update(gameManager){
+        switch(this.directive){
+            case "UP":
+                this.entName = 'zUp1';
+                break;
+            case "DOWN":
+                this.entName = 'zDown1';
+                break;
+            case "LEFT":
+                this.entName = 'zLeft1';
+                break;
+            case "RIGHT":
+                this.entName = 'zRight1';
+                break;
+        }
+
         let ent;
         for(let x = -1; x < MAP_WIDTH; x+=32){
             for(let y = -1; y < MAP_HEIGHT; y+=32){
@@ -197,9 +226,6 @@ export class Zombie extends Entity{
 
         let flag = true;
         if(!gameManager.checkNewPos(this, newX, newY)){
-
-            console.log(this.directive, this.posX, this.posY);
-
             switch(this.directive){
                 case 'UP': 
                     while(!gameManager.checkNewPos(this, this.posX, this.posY - this.speed)){

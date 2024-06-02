@@ -18,8 +18,9 @@ p{
 
 .record-table{
     color: white;
+    font-size: 28px;
     border-spacing: 12px;
-    margin-left: 30px;
+    margin-left: 300px;
     
 }
 
@@ -31,6 +32,17 @@ p{
 
 .reg{
     font-size: 21px;
+    position: absolute;
+    top: 50%;
+    left: 32%;
+}
+
+.lore{
+    display: block;
+    font-size: 18px;
+    position: absolute;
+    top: 35%;
+    left: 32%; 
 }
 
 

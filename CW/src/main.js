@@ -25,6 +25,7 @@ let audioManager = new AudioManager();
 
 let mainGameManager = new gameManager(ctx, mainMapManager, spriteManager, audioManager);
 
+
 export let rAF = null; 
 let count = 0;
 
