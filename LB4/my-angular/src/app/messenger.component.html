@@ -1,0 +1,34 @@
+
+<div>
+    <div class="line-block">
+        <ul class="friend-list">
+            <li *ngFor="let friend of friendList;" class="friend-list-elem">
+                <div class="messenger-list-elem-cont" id="{{friend.id}}" (click)="checkDialog($event)">
+                    <img src="/assets/images/avatar/{{friend.id}}.png" class="friend-avatar">
+                    <span class="friend-text">{{friend.surname}} {{friend.name}}</span>
+                </div>
+            </li>
+        </ul>
+    </div> 
+
+
+    <div>
+        <div style="overflow-y: scroll; width: 50%; height: 512px;">
+            <ul class="friend-list">
+                <li *ngFor="let mess of currentDialog.dialog" >
+                    <div style = "display: flex; align-items: center;">
+                        <img src="/assets/images/avatar/{{mess.id}}.png" class="friend-avatar">
+                        <p>{{mess.text}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div> 
+    
+        <div>
+            <input [(ngModel)]="messenge" *ngIf="currentDialog.dialog" style="margin-left: 50px">
+            <button *ngIf="currentDialog.dialog" (click)="sendMessage(userID)">Нажми меня</button>
+        </div>
+    </div>
+</div>
+   
+    
